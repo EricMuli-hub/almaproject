@@ -1,0 +1,24 @@
+# Not tested here. It shows the shape of a scalable deployment:
+# many stateless API copies, one shared database, one chain node, one IPFS node.
+services:
+  db:
+    image: postgres:16
+    environment: {POSTGRES_USER: alma, POSTGRES_PASSWORD: alma, POSTGRES_DB: alma}
+    volumes: [dbdata:/var/lib/postgresql/data]
+  ipfs:
+    image: ipfs/kubo:latest
+    volumes: [ipfsdata:/data/ipfs]
+  chain:
+    image: ghcr.io/foundry-rs/foundry:latest
+    entrypoint: ["anvil", "--host", "0.0.0.0"]
+  api:
+    build: .
+    env_file: .env
+    depends_on: [db, ipfs, chain]
+    deploy: {replicas: 3}
+    volumes: [apidata:/srv/data]
+  lb:
+    image: caddy:2
+    ports: ["80:80"]
+    command: caddy reverse-proxy --from :80 --to api:8000
+volumes: {dbdata: {}, ipfsdata: {}, apidata: {}}

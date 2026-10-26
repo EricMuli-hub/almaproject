@@ -1,0 +1,219 @@
+{
+ "gas": {
+  "single_issue": 85957,
+  "batch_1000_total": 56042,
+  "batch_1000_per_record": 56.0
+ },
+ "batch_issue_1000_wall_s": 0.34,
+ "merkle": {
+  "1000": {
+   "build_s": 0.001,
+   "proof_hashes": 10,
+   "proof_bytes": 320,
+   "verify_ms": 0.0087,
+   "ok": true
+  },
+  "10000": {
+   "build_s": 0.006,
+   "proof_hashes": 14,
+   "proof_bytes": 448,
+   "verify_ms": 0.0142,
+   "ok": true
+  },
+  "100000": {
+   "build_s": 0.067,
+   "proof_hashes": 17,
+   "proof_bytes": 544,
+   "verify_ms": 0.0278,
+   "ok": true
+  }
+ },
+ "verify": {
+  "samples": 60,
+  "hybrid_p50_ms": 13.248,
+  "hybrid_p95_ms": 18.11,
+  "cached_p50_ms": 1.87,
+  "cached_p95_ms": 2.484,
+  "central_p50_ms": 0.3493,
+  "central_p95_ms": 0.5521
+ },
+ "verify_throughput_per_s_8_clients": 69.6,
+ "all_valid": true,
+ "gas_table": {
+  "constructor": {
+   "standard": 3804522,
+   "optimized": 1963108
+  },
+  "grantRole (employer)": {
+   "standard": 49285,
+   "optimized": 48819
+  },
+  "registerStudent": {
+   "standard": 75838,
+   "optimized": 75181
+  },
+  "mintCredential": {
+   "standard": 86687,
+   "optimized": 85938
+  },
+  "revokeCredential": {
+   "standard": 55823,
+   "optimized": 55225
+  },
+  "anchorBatch (any size)": {
+   "standard": 56869,
+   "optimized": 55220
+  },
+  "verifyCredential": {
+   "standard": 0,
+   "optimized": 0
+  },
+  "verifyCredential_call_ms": {
+   "standard": 5.633,
+   "optimized": 6.03
+  }
+ },
+ "concurrency_nocache": {
+  "read_cache_ttl_s": 0.0,
+  "rows": [
+   {
+    "concurrent": 10,
+    "ok": 20,
+    "total": 20,
+    "min_ms": 89.7,
+    "max_ms": 160.5,
+    "mean_ms": 135.2,
+    "median_ms": 134.4,
+    "p95_ms": 160.5,
+    "tps": 59.2
+   },
+   {
+    "concurrent": 50,
+    "ok": 100,
+    "total": 100,
+    "min_ms": 106.7,
+    "max_ms": 936.5,
+    "mean_ms": 827.2,
+    "median_ms": 877.9,
+    "p95_ms": 934.9,
+    "tps": 53.7
+   },
+   {
+    "concurrent": 100,
+    "ok": 200,
+    "total": 200,
+    "min_ms": 256.4,
+    "max_ms": 1848.8,
+    "mean_ms": 1396.0,
+    "median_ms": 1553.9,
+    "p95_ms": 1835.8,
+    "tps": 54.9
+   },
+   {
+    "concurrent": 500,
+    "ok": 1000,
+    "total": 1000,
+    "min_ms": 1464.0,
+    "max_ms": 10535.0,
+    "mean_ms": 8434.3,
+    "median_ms": 9418.0,
+    "p95_ms": 10293.8,
+    "tps": 47.6
+   },
+   {
+    "concurrent": 1000,
+    "ok": 2000,
+    "total": 2000,
+    "min_ms": 2273.8,
+    "max_ms": 19779.3,
+    "mean_ms": 15661.5,
+    "median_ms": 17734.6,
+    "p95_ms": 18728.4,
+    "tps": 51.1
+   }
+  ],
+  "rss_start_mb": 270.0,
+  "rss_end_mb": 325.9
+ },
+ "concurrency_cache5s": {
+  "read_cache_ttl_s": 5.0,
+  "rows": [
+   {
+    "concurrent": 10,
+    "ok": 20,
+    "total": 20,
+    "min_ms": 33.3,
+    "max_ms": 149.2,
+    "mean_ms": 87.6,
+    "median_ms": 86.7,
+    "p95_ms": 149.2,
+    "tps": 105.4
+   },
+   {
+    "concurrent": 50,
+    "ok": 100,
+    "total": 100,
+    "min_ms": 49.1,
+    "max_ms": 429.3,
+    "mean_ms": 279.2,
+    "median_ms": 178.1,
+    "p95_ms": 428.1,
+    "tps": 156.4
+   },
+   {
+    "concurrent": 100,
+    "ok": 200,
+    "total": 200,
+    "min_ms": 87.3,
+    "max_ms": 796.8,
+    "mean_ms": 475.0,
+    "median_ms": 356.8,
+    "p95_ms": 786.0,
+    "tps": 162.7
+   },
+   {
+    "concurrent": 500,
+    "ok": 1000,
+    "total": 1000,
+    "min_ms": 1010.6,
+    "max_ms": 8380.4,
+    "mean_ms": 5385.1,
+    "median_ms": 5392.2,
+    "p95_ms": 8077.8,
+    "tps": 62.3
+   },
+   {
+    "concurrent": 1000,
+    "ok": 2000,
+    "total": 2000,
+    "min_ms": 2914.6,
+    "max_ms": 11245.0,
+    "mean_ms": 9266.4,
+    "median_ms": 9995.8,
+    "p95_ms": 10935.8,
+    "tps": 89.2
+   }
+  ],
+  "rss_start_mb": 331.4,
+  "rss_end_mb": 339.3
+ },
+ "cost_per_10000_records": {
+  "assumed_coin_usd": 3000.0,
+  "rows": [
+   {
+    "network": "mainnet-like (assumed)",
+    "gas_price_gwei": 20.0,
+    "one_tx_each_usd": 51574.2,
+    "one_batch_usd": 33.63
+   },
+   {
+    "network": "layer-2-like (assumed)",
+    "gas_price_gwei": 0.05,
+    "one_tx_each_usd": 128.94,
+    "one_batch_usd": 0.08
+   }
+  ],
+  "note": "gas figures are measured; prices are assumptions"
+ },
+ "chain": "in-process test chain"
+}

@@ -1,0 +1,13 @@
+fastapi>=0.110
+uvicorn>=0.29
+sqlalchemy>=2.0
+web3[tester]>=7
+scikit-learn>=1.4
+numpy
+joblib
+cryptography
+pyjwt
+httpx
+psutil
+pytest
+psycopg2-binary   # only needed for PostgreSQL
